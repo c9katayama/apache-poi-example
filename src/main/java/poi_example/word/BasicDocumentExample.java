@@ -9,29 +9,29 @@ import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.apache.poi.xwpf.usermodel.XWPFRun;
 
 /**
- * Wordドキュメントを作成し、パスワード設定とパスワード設定したWordドキュメントを読み込むサンプル。
+ * Wordドキュメントを作成し、段落を入れて保存するサンプル。
  */
 public class BasicDocumentExample {
-    public static void main(String[] args) throws IOException {
-        try (XWPFDocument document = new XWPFDocument()) {
-            // 段落の作成
-            XWPFParagraph paragraph = document.createParagraph();
-            XWPFRun run = paragraph.createRun();
-            run.setText("Hello Apache POI Word!");
-            run.setBold(true);
-            run.setFontSize(14);
+	public static void main(String[] args) throws IOException {
+		try (XWPFDocument document = new XWPFDocument()) {
+			// 段落の作成
+			XWPFParagraph paragraph = document.createParagraph();
+			XWPFRun run = paragraph.createRun();
+			run.setText("Hello Apache POI Word!");
+			run.setBold(true);
+			run.setFontSize(14);
 
-            // 新しい段落を作成
-            paragraph = document.createParagraph();
-            run = paragraph.createRun();
-            run.setText("This is a new paragraph.");
+			// 新しい段落を作成
+			paragraph = document.createParagraph();
+			run = paragraph.createRun();
+			run.setText("This is a new paragraph.");
 
-            // ファイルに保存
-            new File("output").mkdirs();
-            try (FileOutputStream out = new FileOutputStream("output/document.docx")) {
-                document.write(out);
-            }
-        }
-        System.out.println("Wordファイルを作成しました。");
-    }
+			// ファイルに保存
+			new File("output").mkdirs();
+			try (FileOutputStream out = new FileOutputStream("output/basic_document.docx")) {
+				document.write(out);
+			}
+		}
+		System.out.println("Wordファイルを作成しました。");
+	}
 }
