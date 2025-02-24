@@ -9,3 +9,4 @@ build
 /.vscode/
 /bin/
 /output/
+**/.DS_Store
