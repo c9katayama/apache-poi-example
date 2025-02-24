@@ -13,6 +13,8 @@
 - VLOOKUP関数の使用 (FormulaVLookupExample)
 - セルスタイルの適用 (StyleExample)
 - 入力規則の設定 (ValidationExample)
+- 大容量ワークブックのエクスポート (LargeWorkbookExportExample)
+- 大容量ワークブックの読み込み (LargeWorkbookReaderExample)
 
 ### Word操作
 - 基本的なドキュメント作成 (BasicDocumentExample)
