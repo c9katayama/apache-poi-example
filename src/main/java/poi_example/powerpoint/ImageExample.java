@@ -32,13 +32,14 @@ public class ImageExample {
             r.setFontSize(24.0);
 
             // 画像の挿入
-            try (InputStream imageStream = 
-                ImageExample.class.getResourceAsStream("/sample_image.png")){
-                XSLFPictureData pictureData = ppt.addPicture(
-                        imageStream,
+            try (InputStream imageStream = ImageExample.class.getResourceAsStream("/sample_image.png")) {
+                byte[] pictureData = imageStream.readAllBytes();
+
+                XSLFPictureData xslfPictureData = ppt.addPicture(
+                        pictureData,
                         XSLFPictureData.PictureType.PNG);
-                XSLFPictureShape picture = slide.createPicture(pictureData);
-                picture.setAnchor(new Rectangle(100, 100, 400, 300));
+                XSLFPictureShape picture = slide.createPicture(xslfPictureData);
+                picture.setAnchor(new Rectangle(100, 100, 400, 400));
             }
 
             // ファイルに保存
