@@ -56,11 +56,12 @@ public class FormExample {
 
 			// ファイルに保存
 			new File("output").mkdirs();
-			try (FileOutputStream out = new FileOutputStream("output/form.docx")) {
+			String outputFilePath = "output/form.docx";
+			try (FileOutputStream out = new FileOutputStream(outputFilePath)) {
 				out.write(filledForm);
+				System.out.println("Formファイルを作成しました。ファイルパス: " + outputFilePath);
 			}
 		}
-		System.out.println("Formファイルを作成しました。");
 	}
 
 	// フォームを作成する

@@ -52,10 +52,11 @@ public class StyleExample {
 
             // ファイルに保存
             new File("output").mkdirs();
-            try (FileOutputStream fileOut = new FileOutputStream("output/style_example.xlsx")) {
+            String outputFilePath = "output/style_example.xlsx";
+            try (FileOutputStream fileOut = new FileOutputStream(outputFilePath)) {
                 workbook.write(fileOut);
+                System.out.println("スタイルを適用したExcelファイルを作成しました。ファイルパス: " + outputFilePath);
             }
         }
-        System.out.println("スタイルを適用したExcelファイルを作成しました。");
     }
 }

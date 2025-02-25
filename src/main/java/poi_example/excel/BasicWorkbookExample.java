@@ -38,10 +38,11 @@ public class BasicWorkbookExample {
 
 			// ファイルに保存
 			new File("output").mkdirs(); // outputディレクトリを作成
-			try (FileOutputStream fileOut = new FileOutputStream("output/workbook.xlsx")) {
+			String outputFilePath = "output/workbook.xlsx";
+			try (FileOutputStream fileOut = new FileOutputStream(outputFilePath)) {
 				workbook.write(fileOut);
+				System.out.println("Excelファイルを作成しました。ファイルパス: " + outputFilePath);
 			}
 		}
-		System.out.println("Excelファイルを作成しました。");
 	}
 }

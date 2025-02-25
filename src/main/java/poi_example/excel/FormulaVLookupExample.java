@@ -57,10 +57,11 @@ public class FormulaVLookupExample {
 
             // ファイルに保存
             new File("output").mkdirs();
-            try (FileOutputStream fileOut = new FileOutputStream("output/vlookup_example.xlsx")) {
+            String outputFilePath = "output/vlookup_example.xlsx";
+            try (FileOutputStream fileOut = new FileOutputStream(outputFilePath)) {
                 workbook.write(fileOut);
+                System.out.println("VLOOKUPを含むExcelファイルを作成しました。ファイルパス: " + outputFilePath);
             }
         }
-        System.out.println("VLOOKUPを含むExcelファイルを作成しました。");
     }
 }

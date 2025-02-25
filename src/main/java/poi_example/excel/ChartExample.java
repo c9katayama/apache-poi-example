@@ -76,10 +76,11 @@ public class ChartExample {
 
             // ファイルに保存
             new File("output").mkdirs();
-            try (FileOutputStream fileOut = new FileOutputStream("output/chart_example.xlsx")) {
+            String outputFilePath = "output/chart_example.xlsx";
+            try (FileOutputStream fileOut = new FileOutputStream(outputFilePath)) {
                 workbook.write(fileOut);
+                System.out.println("グラフを含むExcelファイルを作成しました。ファイルパス: " + outputFilePath);
             }
         }
-        System.out.println("グラフを含むExcelファイルを作成しました。");
     }
 }

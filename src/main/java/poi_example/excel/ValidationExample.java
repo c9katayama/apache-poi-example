@@ -62,10 +62,11 @@ public class ValidationExample {
 
             // ファイルに保存
             new File("output").mkdirs();
-            try (FileOutputStream fileOut = new FileOutputStream("output/validation_example.xlsx")) {
+            String outputFilePath = "output/validation_example.xlsx";
+            try (FileOutputStream fileOut = new FileOutputStream(outputFilePath)) {
                 workbook.write(fileOut);
+                System.out.println("入力規則を設定したExcelファイルを作成しました。ファイルパス: " + outputFilePath);
             }
         }
-        System.out.println("入力規則を設定したExcelファイルを作成しました。");
     }
 }

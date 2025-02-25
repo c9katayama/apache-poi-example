@@ -51,10 +51,11 @@ public class ShapeExample {
 
             // ファイルに保存
             new File("output").mkdirs();
-            try (FileOutputStream out = new FileOutputStream("output/shape_example.pptx")) {
+            String outputFilePath = "output/shape_example.pptx";
+            try (FileOutputStream out = new FileOutputStream(outputFilePath)) {
                 ppt.write(out);
+                System.out.println("図形を含むPowerPointファイルを作成しました。ファイルパス: " + outputFilePath);
             }
         }
-        System.out.println("図形を含むPowerPointファイルを作成しました。");
     }
 }

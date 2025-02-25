@@ -45,10 +45,11 @@ public class ImageExample {
 
             // ファイルに保存
             new File("output").mkdirs();
-            try (FileOutputStream out = new FileOutputStream("output/image_example.docx")) {
+            String outputFilePath = "output/image_example.docx";
+            try (FileOutputStream out = new FileOutputStream(outputFilePath)) {
                 document.write(out);
+                System.out.println("画像を含むWordファイルを作成しました。ファイルパス: " + outputFilePath);
             }
         }
-        System.out.println("画像を含むWordファイルを作成しました。");
     }
 }

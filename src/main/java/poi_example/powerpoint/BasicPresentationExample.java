@@ -30,10 +30,11 @@ public class BasicPresentationExample {
 
             // ファイルに保存
             new File("output").mkdirs();
-            try (FileOutputStream out = new FileOutputStream("output/presentation.pptx")) {
+            String outputFilePath = "output/presentation.pptx";
+            try (FileOutputStream out = new FileOutputStream(outputFilePath)) {
                 ppt.write(out);
+                System.out.println("PowerPointファイルを作成しました。ファイルパス: " + outputFilePath);
             }
         }
-        System.out.println("PowerPointファイルを作成しました。");
     }
 }

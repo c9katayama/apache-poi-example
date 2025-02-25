@@ -46,13 +46,14 @@ public class LargeWorkbookExportExample {
 
             // ファイルに保存
             new File("output").mkdirs();
-            try (FileOutputStream fileOut = new FileOutputStream("output/large_data.xlsx")) {
+            String outputFilePath = "output/large_data.xlsx";
+            try (FileOutputStream fileOut = new FileOutputStream(outputFilePath)) {
                 workbook.write(fileOut);
+                System.out.println("大量データを含むExcelファイルを作成しました。ファイルパス: " + outputFilePath);
             }
 
             // 一時ファイルを削除
             workbook.dispose();
         }
-        System.out.println("大量データを含むExcelファイルを作成しました。");
     }
 }

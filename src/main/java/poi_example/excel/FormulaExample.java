@@ -35,10 +35,11 @@ public class FormulaExample {
 
             // ファイルに保存
             new File("output").mkdirs();
-            try (FileOutputStream fileOut = new FileOutputStream("output/formula.xlsx")) {
+            String outputFilePath = "output/formula.xlsx";
+            try (FileOutputStream fileOut = new FileOutputStream(outputFilePath)) {
                 workbook.write(fileOut);
+                System.out.println("数式を含むExcelファイルを作成しました。ファイルパス: " + outputFilePath);
             }
         }
-        System.out.println("数式を含むExcelファイルを作成しました。");
     }
 }

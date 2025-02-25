@@ -69,10 +69,11 @@ public class ConditionalFormattingExample {
 
 			// ファイルの保存
 			new File("output").mkdirs();
-			try (FileOutputStream fileOut = new FileOutputStream("output/conditional_formatting_example.xlsx")) {
+			String outputFilePath = "output/conditional_formatting_example.xlsx";
+			try (FileOutputStream fileOut = new FileOutputStream(outputFilePath)) {
 				workbook.write(fileOut);
+				System.out.println("条件付き書式を含むExcelファイルを作成しました。ファイルパス: " + outputFilePath);
 			}
-			System.out.println("条件付き書式を含むExcelファイルを作成しました。");
 		}
 	}
 }

@@ -50,10 +50,11 @@ public class TableExample {
 
             // ファイルに保存
             new File("output").mkdirs();
-            try (FileOutputStream out = new FileOutputStream("output/table_example.docx")) {
+            String outputFilePath = "output/table_example.docx";
+            try (FileOutputStream out = new FileOutputStream(outputFilePath)) {
                 document.write(out);
+                System.out.println("表を含むWordファイルを作成しました。ファイルパス: " + outputFilePath);
             }
         }
-        System.out.println("表を含むWordファイルを作成しました。");
     }
 }

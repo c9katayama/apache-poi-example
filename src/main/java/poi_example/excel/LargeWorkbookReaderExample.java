@@ -28,7 +28,7 @@ public class LargeWorkbookReaderExample {
 		LargeWorkbookExportExample.main(args);
 		File file = new File("output/large_data.xlsx");
 		try (InputStream is = new FileInputStream(file); OPCPackage pkg = OPCPackage.open(is)) {
-
+			String filePath = file.getPath();
 			XSSFReader reader = new XSSFReader(pkg);
 			SharedStrings sst = reader.getSharedStringsTable();
 			StylesTable styles = reader.getStylesTable();
@@ -50,8 +50,8 @@ public class LargeWorkbookReaderExample {
 					parser.parse(sheetSource);
 				}
 			}
+			System.out.println("ファイルの読み込みが完了しました。ファイルパス: " + filePath);
 		}
-		System.out.println("ファイルの読み込みが完了しました。");
 	}
 
 	public static final class ExampleContentsHandler implements SheetContentsHandler {

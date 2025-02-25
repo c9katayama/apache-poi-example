@@ -28,10 +28,11 @@ public class BasicDocumentExample {
 
 			// ファイルに保存
 			new File("output").mkdirs();
-			try (FileOutputStream out = new FileOutputStream("output/basic_document.docx")) {
+			String outputFilePath = "output/basic_document.docx";
+			try (FileOutputStream out = new FileOutputStream(outputFilePath)) {
 				document.write(out);
+				System.out.println("Wordファイルを作成しました。ファイルパス: " + outputFilePath);
 			}
 		}
-		System.out.println("Wordファイルを作成しました。");
 	}
 }

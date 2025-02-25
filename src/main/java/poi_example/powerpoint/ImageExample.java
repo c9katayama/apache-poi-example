@@ -2,9 +2,9 @@ package poi_example.powerpoint;
 
 import java.awt.Rectangle;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 import org.apache.poi.xslf.usermodel.XMLSlideShow;
 import org.apache.poi.xslf.usermodel.XSLFPictureData;
@@ -32,7 +32,8 @@ public class ImageExample {
             r.setFontSize(24.0);
 
             // 画像の挿入
-            try (FileInputStream imageStream = new FileInputStream("sample_image.png")) {
+            try (InputStream imageStream = 
+                ImageExample.class.getResourceAsStream("/sample_image.png")){
                 XSLFPictureData pictureData = ppt.addPicture(
                         imageStream,
                         XSLFPictureData.PictureType.PNG);
@@ -42,10 +43,11 @@ public class ImageExample {
 
             // ファイルに保存
             new File("output").mkdirs();
-            try (FileOutputStream out = new FileOutputStream("output/image_slide_example.pptx")) {
+            String outputFilePath = "output/image_slide_example.pptx";
+            try (FileOutputStream out = new FileOutputStream(outputFilePath)) {
                 ppt.write(out);
+                System.out.println("画像を含むPowerPointファイルを作成しました。ファイルパス: " + outputFilePath);
             }
         }
-        System.out.println("画像を含むPowerPointファイルを作成しました。");
     }
 }
